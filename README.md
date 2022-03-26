@@ -29,7 +29,26 @@ On scrolling down to the end of the file, you'll be able to find the new modifie
 As you can see the comments and the macros have been modified.
 
 ## The Compiler
+The Compiler now converts the Preprocessor Output **.i** to **.s** output which is the assembly language. This can be achieved by running the following command
+
+`gcc -s happylearning.i -o happylearning.s`
+
+![image](https://user-images.githubusercontent.com/102030901/160237014-ad30b740-65b6-4ec5-a9e4-3e99164cbe86.png)
+
+So, this is the Assembly language for the program written by us.
 
 ## The Assembler
+Now, let's gear up for the object binary file creation. The object binary file can be created from the Compiler output using the below command. Also, note that the object files can't be opened using vim editor as vim editor supports only the ASCII Standard Text and not Hex Code, which is used by the object files.
+
+`gcc -c happylearning.s -o  happylearning.o`
+
+Now you should be able to see the object file in the current working directory but wait this is not the final object file that you can execute, this still contains some missing links and missing libraies.
 
 ## The Linker
+The Linker is the final process in the Compilation Process, the linker combines and maps the previous output object file with other dependent libraries, object code information and other object binary files.
+
+`gcc happylearning.o -o runnable.o`
+
+Now you should be able to execute the command and see the output by using the below command
+
+`./runnable.o`
